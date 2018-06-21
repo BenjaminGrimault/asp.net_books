@@ -8,7 +8,7 @@ using books.Models;
 
 namespace books.Controllers
 {
-    public class HomeController : Controller
+    public class BookController : Controller
     {
         public IActionResult Index()
         {
