@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Bouquins";
+}
+
+Les bouquins
+
+<table class="table table-stripped">
+    <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Genre</th>
+        <th>Date de publication</th>
+        <th>Auteur</th>
+    </tr>
+
+@foreach (Book book in ViewBag.booksList)
+{
+    <tr>
+        <td>@book.Id</td>
+        <td>@book.Name</td>
+        <td>@book.Type</td>
+        <td>@book.PublishedDate</td>
+        <td>@book.Author.Name</td>
+    </tr>
+}
+</table>

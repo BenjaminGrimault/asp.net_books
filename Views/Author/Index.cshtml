@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Auteurs";
+}
+
+Les auteurs
+
+<table class="table table-stripped">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Date de naissance</th>
+    </tr>
+
+@foreach (Author author in ViewBag.authorsList)
+{
+    <tr>
+        <td>@author.Id</td>
+        <td>@author.Name</td>
+        <td>@author.BirthDate</td>
+    </tr>
+}
+</table>

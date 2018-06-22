@@ -9,12 +9,12 @@ using books.Data;
 
 namespace books.Controllers
 {
-    [Route("book")]
-    public class BookController : Controller
+    [Route("author")]
+    public class AuthorController : Controller
     {
         private ApplicationDbContext dbContext = null;
 
-        public BookController(ApplicationDbContext dbContext)
+        public AuthorController(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
@@ -23,7 +23,7 @@ namespace books.Controllers
         [Route("index")]
         public IActionResult Index()
         {
-            ViewBag.booksList = dbContext.Books;
+            ViewBag.authorsList = dbContext.Authors;
             return View();
         }
         
@@ -34,30 +34,30 @@ namespace books.Controllers
         }
 
         [Route("add")]
-        public IActionResult Add(Book book)
+        public IActionResult Add(Author author)
         {
             if (ModelState.IsValid) {
-                dbContext.Add<Book>(book);
+                dbContext.Add<Author>(author);
                 dbContext.SaveChanges();
             }
             return View();
         }
 
         [Route("update/{id}")]
-        public IActionResult Update(int id, Book book)
+        public IActionResult Update(int id, Author author)
         {
             if (ModelState.IsValid) {
-                dbContext.Update(book);
+                dbContext.Update(author);
                 dbContext.SaveChanges();
             }
             return View();
         }
 
         [Route("delete/{id}")]
-        public IActionResult Delete(Book book)
+        public IActionResult Delete(Author author)
         {
             if (ModelState.IsValid) {
-                dbContext.Remove(book);
+                dbContext.Remove(author);
                 dbContext.SaveChanges();
             }
             return View();
